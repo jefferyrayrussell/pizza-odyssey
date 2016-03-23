@@ -14,13 +14,6 @@ The pizza store owner wants the data page for each location to include the work
 hour of the day, the number of pizzas sold, the number of deliveries made, and
 the number of delivery drivers recommended.
 
-Each line of the data page for a particular location will come from an
-hourly data array that includes: location, time, pizza sold, and deliveries
-made.
-
-TASK  Create a function to gather that data and place it in an array that can
-be moved to the sales-data.html page.  
-
 The following function will generate a random number between two assigned numbers,
 inorder to calculate the number of pizzas sold per hour and the number of pizza
 deliveries per hour.  The two numbers which serve as arguments in the function
@@ -30,132 +23,49 @@ function getRandomIntInclusive(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 };
 
-/* Each store and its properties which include object literals,
-one for each store model, this program reports out the
-properties: name, number of pizzas sold, number of deliveries made
+/* The data that pertains to each pizza branch is stored in an object
+created by literal notation.  The object is stored in a variable called
+pizzaBranch. The data inside that object has five properties.
 
+The first property has the key branchLocation.  There are six different
+instances of this object as there are six different values to the key identified
+as branch location.  These are: Ballard, First Hill, International District,
+South Lake Union, Georgetown, and Ravenna.
 
+The second property has the key workHour.  There will be 18 values for this key
+corresponding to the 18 work hours of the day.
 
-//each store is an object//
+The third property has the key numberPizzas.  The forth property has the key
+numberDeliveries. These values will be created using the getRandomIntInclusive
+function using the arguments provided for the parameters.  There will be 18
+separate values for each of these keys corresponding to the 18 workhours.
 
+The fifth property has the key numberDrivers. This is created by dividing the
+number of deliveries by three and rounding up.
+Use numberDrivers: Math.ceil(numberDeliveries)/3 */
 
-/*var store = {
-  location: 'Ballard',
-  salesData: [hourOne, hourTwo, hourThree, hourFour, hourFive, hourSix, hourSeven]
-};
-
-//each hour is an object that has the properties timeOfDay, pizzasSold,
-//pizzasDeliveries, and pizzaDrivers
-//the location in the object store needs to published
-//each item in the object hou one needs to be published
-
-function getRandomIntInclusive(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-};
-
-va
-
-
-function getNumberOfDrivers (pizzasDelivered / )
-
-*/
-
-
-//make hourly data in an empty array; create a function that is called
-function addHourlySalesDataToLocation(storeLocation, time, pizzasSold, deliveriesMade){
-  storelocation.hourlyData.push({
-    time:time,
-    pizzasSold: pizzasSold,
-    deliveriesMade: deliveriesMade,
-    driversNeeded: Math.ceil(deliveriesMade / 3)
-  });
-}
-
-var ballard = {
-  name: 'ballard',
-  hourlyData: []
-};
-
-
-var ballard = {
-  name: 'ballard'
-  hourlyData: [
-    {
-      time: '8:00',
-      pizzasSold: getRandomIntInclusive(0, 4)
-      pizzaDeliveries: getRandomIntInclusive(0, 4)
-    }
-  ]
-};
-
-var ballardUL = document.getElementById(ballard.name)
-var eightOclockLi;
-for (var i=0; i < ballard.hourlyData.length; i++){}
-
-var eightOclockLi = document.createElement('Li');
-eightoclockLi.tetContent = ballard.hourlyData[0].time + 'pizzas sold' + ballard.hourly Data[0]pizzasSold;
-ballardUL.appendChild(eightOclockLi);
-}
-
-//wrap the above in a function so that we can just simply add the store in;
-
-
-var Hour1 = {
-  location:  'Ballard',
-  timeOfDay:  '8:00 a.m.'
-  pizzasSold: 4,
-  pizzaDeliveries: 4,
-  pizzaDrivers: 2,
-}
-
-// create an element and add it to the end of the dom
-// 1) create the element
-var hour1 = document.createElement('p');
-
-// 2) set the content and/or any atributes
-// to set an atribute use .setAttribute(<atributeName>, <atributeValue>)
-hour1.setAttribute('id', 'firstPTag');
-// set the content
-ptag.textContent = 'hello world';
-
-//3) add the tag to the body
-document.body.appendChild(ptag);
-
-// add an element to a tag with an id on the page
-// 1) get a reference to the element in the dom using getElementById(<id>)
-var bodyHeader = document.getElementById('body-header');
-
-// 2) create a new element
-var pageHeading = document.createElement('h1');
-pageHeading.textContent = 'best page heading ever!';
-
-// 3) add the element to the element with the id
-bodyHeader.appendChild(pageHeading);
-
+var pizzaBranch = {};
+pizzaBranch.branchLocation = 'Ballard';
+pizzaBranch.workHour = '8:00 a.m.';
+pizzaBranch.numberPizzas = getRandomIntInclusive(0, 4);
+pizzaBranch.numberDeliveries = getRandomIntInclusive(0, 4);
+pizzaBranch.numberDrivers = Math.ceil(numberDeliveries / 3);
 
 /*
+Each line of the data page for a particular location will come from an
+array called hourlySalesData that includes: work Hour, pizzas sold,deliveries
+made, and the number of drivers recommended.
 
-var hourOne = {
-  timeOfDay: '8:00 a.m.',
-  pizzasSold: getRandomIntInclusive(0,4),
-  pizzaDeliveries: getRandomIntInclusive(0,4),
-  pizzaDrivers:
-}
-var
+TASK  Create a function to gather the data for every branch and every work hour
+and place it in an array. */
 
+var hourlySalesData = [branchLocation, workHour, numberPizzas, numberDeliveries, numberDrivers];
 
+/* TASK  Use DOM methods to move the contents of the hourlySalesData array onto
+the sales-data.html page.
 
-var hourTwo = {
-  timeOfDay: '9:00 a.m.',
-  pizzasSold: getRandomIntInclusive(0,4),
-  pizzasDelivered: getRandomIntInclusive(0,4),
-  pizzaDeliverers:
-}
+/*The total number of pizzas sold for the week needs to be calculated.
 
-var hourThree = {
-  timeOfDay: '10:00 a.m.',
-  pizzasSold: getRandomIntInclusive(0,4),
-  pizzasDelivered: getRandomIntInclusive(0,4),
-  pizzaDeliverers:
-}
+TASK Create a function to add up each of the hourly pizza sales for each of the
+locations and multiply by the six day work week.
 */
