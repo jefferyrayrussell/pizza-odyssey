@@ -78,11 +78,6 @@ ballard.pushHourlyData(new HourlyData('1:00 pm', 8, 15, 6, 16));
 
 console.log('ballard');
 
-  for(var i = 0; i < ballard.hourlyData.length; i++){
-    console.log(ballard.hourlyData);
-  }
-
-
 var firstHill = new PizzaLocation('firstHill');
 firstHill.pushHourlyData(new HourlyData('8:00 am', 1, 3, 1, 7));
 firstHill.pushHourlyData(new HourlyData('9:00 am', 1, 3, 1, 7));
@@ -193,7 +188,6 @@ ravenna.pushHourlyData(new HourlyData('1:00 pm', 2, 4, 3, 11));
 
 console.log('ravenna');
 
-
 /* A table is created for each branch location.  There is a heading written in
 html above the table indicating each of the six locations.  Each table has 18
 table rows corresponding to the 18 work hours of the day.  Above the table rows
@@ -201,20 +195,7 @@ are four table headings (Work Hour, Pizzas Sold, Deliveries Made, Drivers
 Needed). Consequently there are four corresponding cells of table data in
 each row. */
 
-// how to crate an element..
-// create an element
-// set its attributes
-// set its content
-// add it to the dom
-
-// create a table
-// create a row add it to the table
-// create th/td set there content add them to the row
-
-// take in an array of strings and create a table row with td tags
-
-
-function (ballard.hourlyData){
+function generateDataRow(inputArray){
   var row = document.createElement('tr');
   var col;
   for(var i = 0; i < inputArray.length; i++){
@@ -225,77 +206,17 @@ function (ballard.hourlyData){
   return row;
 }
 
-
-
-
-
-/*
-function makeDataRow(ballard.hourlyData){
-  var row = document.createElement('tr');
-  var col;
-  for(var i = 0; i < inputArray.length; i++){
-    col = document.createElement('td');
-    col.textContent = inputArray[i];
-    row.appendChild(col);
+function makeTable(store, storeId){
+  var pizzaTable = document.getElementById(storeId);
+  for(var i = 0; i < store.hourlyData.length; i++) {
+    var fancyRow = generateDataRow([store.hourlyData[i].time, store.hourlyData[i].pizzasSold, store.hourlyData[i].deliveriesMade, store.hourlyData[i].driversNeeded]);
+    pizzaTable.appendChild(fancyRow);
   }
-  return row;
 }
 
-// take in an array of strings and create a table row with tr tags
-function genorateHeadingRow(inputArray){
-  var row = document.createElement('tr');
-  var col;
-  for(var i = 0; i < inputArray.length; i++){
-    col = document.createElement('th');
-    col.textContent = inputArray[i];
-    row.appendChild(col);
-  }
-  return row;
-}
-
-// create a table
-var peopleTable = document.createElement('table');
-
-// create a row with th tags
-var firstRow = genorateHeadingRow(['name', 'age', 'language']);
-
-var secondRow = genorateDataRow(['dunc', '88', 'javascript']);
-var thirdRow = genorateDataRow(['slug', '707', 'html']);
-var fourthRow = genorateDataRow(['neo', '301', 'css']);
-
-peopleTable.appendChild(firstRow);
-peopleTable.appendChild(secondRow);
-peopleTable.appendChild(thirdRow);
-peopleTable.appendChild(fourthRow);
-
-document.getElementById('table-demo').appendChild(peopleTable);
-
-// create an element and add it to the end of the dom
-// 1) create the element
-var ptag = document.createElement('p');
-
-// 2) set the content and/or any atributes
-// to set an atribute use .setAttribute(<atributeName>, <atributeValue>)
-ptag.setAttribute('id', 'firstPTag');
-// set the content
-ptag.textContent = 'hello world';
-
-//3) add the tag to the body
-document.body.appendChild(ptag);
-
-// add an element to a tag with an id on the page
-// 1) get a reference to the element in the dom using getElementById(<id>)
-var bodyHeader = document.getElementById('body-header');
-
-// 2) create a new element
-var pageHeading = document.createElement('h1');
-pageHeading.textContent = 'best page heading ever!';
-
-// 3) add the element to the element with the id
-bodyHeader.appendChild(pageHeading);
-
-// var rowOne = document.createElement('tr');
-// peopleTable.appendChild(rowOne);
-// var rowOneColOne = document.createElement('th');
-// rowOneColOne.textContent = "Name";
-*/
+makeTable(ballard, 'BallardTable');
+makeTable(firstHill, 'FirstHillTable');
+makeTable(theInternationalDistrict, 'InternationalDistrictTable');
+makeTable(southLakeUnion, 'southLakeUnionTable');
+makeTable(georgetown, 'GeorgetownTable');
+makeTable(ravenna, 'RavennaTable');
