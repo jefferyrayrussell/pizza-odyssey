@@ -195,10 +195,12 @@ are four table headings (Work Hour, Pizzas Sold, Deliveries Made, Drivers
 Needed). Consequently there are four corresponding cells of table data in
 each row. */
 
-/* This function creates a table row with <tr> tags which indicates the start of
-each row and I have chosen to use <th> tags which create data cells for each
-row in bold face and centered.  The actuale content of the data cell will be
-created by the function named generateDataRow.*/
+/* The two functions below create the requested table. The function named
+generateDataRow is used to determine both the content and size of the table.
+The createElement method of DOM manipulation is used to create the elements
+<tr> and <td>. These elements are given content when the parameter inputArray in
+in the generateDataRow function is defined.  The four paramater specified
+determines the number of rows in the table.*/
 
 function generateDataRow(inputArray){
   var row = document.createElement('tr');
@@ -211,7 +213,13 @@ function generateDataRow(inputArray){
   return row;
 }
 
-/* This function creates a separate table for each store location.     */
+/* The calling of the function makeTable creates a separate table for each store
+location.  When that function is called by providing the two arguments store and
+storeID, the getElementByID DOM manipulation method is used to remove the storeId
+on the sales-data html page and replacing it with the table. Using a loop the
+contents of the next row are added to the row preceeding it until the data array
+is exhausted.  */
+
 function makeTable(store, storeId){
   var pizzaTable = document.getElementById(storeId);
   for(var i = 0; i < store.hourlyData.length; i++) {
@@ -220,8 +228,8 @@ function makeTable(store, storeId){
   }
 }
 
-/* The function makeTable is called below by providing two arguments for each
-store location. */
+/* Finally the function makeTable is called below by providing two arguments for each
+store location and the pizza owner is very happy; for now! */
 
 makeTable(ballard, 'ballardTable');
 makeTable(firstHill, 'firstHillTable');
