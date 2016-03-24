@@ -1,17 +1,24 @@
 # pizza-odyssey
-Week 2 Project
 
-A local pizza store owner with six branch locations needs information for her
-business planning; specifically she needs to know how many pizzas she sells per
-week for her publicity page and she needs to know the number of pizza delivery
-drivers required for each hour of business at each location.
+Week 2 Project - Pizza Odyssey - Pizza 3001
 
-Each of the six branches is open identical hours 8 a.m. to 2 a.m. Tuesday
-through Sunday.  The number of pizzas sold and the number of deliveries made at
-each branch location are created through a randomly generated number function
-whose parameters have been normed by the owners market analysis.  It is assumed
-that a driver can deliver 3 pizzas per hour.
+A local pizza store owner is expanding to six branch locations throughout the
+city of Seattle.  She needs help in gathering and organizing the business data
+she requires to profitably manage her business.  Specifically the owner needs
+to know how many pizzas she sells per week for her publicity page; most
+importantly she needs to determine the necessary number of pizza delivery
+drivers she must staff at each location during the hours the pizza branches are
+open.
 
-The pizza store owner wants a separate data page for each location to include
-for every work hour of the day: the number of pizzas sold, the number of
-deliveries, and the number of delivery drivers recommended.
+Here are the facts.  Each of the six branches is open identical hours: 18 hours
+per day between,8 a.m. and  2 a.m., six days per week, Tuesday through Sunday.  
+Some critical data she needs purchasing supplies and staffing needs are the
+the number of pizzas sold and the numbers of deliveries mad during each hour of
+work for each branch location.  These arrays of numbers will be created through
+a randomly generated number function whose parameters have been normed by the
+owner's market analysis.  The owner assumes that a driver can deliver 3 pizzas
+per hour.
+
+The pizza store owner requests a separate data page for each location.  Each
+page should include for every work hour of the day: the number of pizzas sold,
+the number of deliveries, and the number of delivery drivers recommended.
