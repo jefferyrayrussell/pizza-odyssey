@@ -30,8 +30,8 @@ prototype.  This constructor method is attached to the constructor object
 PizzaLocation and will be employed to push data into an array named hourlyData
 which is one of the objects properties. */
 
-PizzaLocation.prototype.pushHourlyData = function(time, pizzasSold, deliveriesMade, driversNeeded){
-  this.hourlyData.push(time, pizzasSold, deliveriesMade, driversNeeded);
+PizzaLocation.prototype.pushHourlyData = function(data){
+  this.hourlyData.push(data);
 };
 
 /* A second object constructor is named HourlyData. There are five
@@ -209,14 +209,14 @@ function generateDataRow(inputArray){
 function makeTable(store, storeId){
   var pizzaTable = document.getElementById(storeId);
   for(var i = 0; i < store.hourlyData.length; i++) {
-    var fancyRow = generateDataRow([store.hourlyData[i].time, store.hourlyData[i].pizzasSold, store.hourlyData[i].deliveriesMade, store.hourlyData[i].driversNeeded]);
-    pizzaTable.appendChild(fancyRow);
+    var dataRow = generateDataRow([store.hourlyData[i].time, store.hourlyData[i].pizzasSold, store.hourlyData[i].deliveriesMade, store.hourlyData[i].driversNeeded]);
+    pizzaTable.appendChild(dataRow);
   }
 }
 
-makeTable(ballard, 'BallardTable');
-makeTable(firstHill, 'FirstHillTable');
-makeTable(theInternationalDistrict, 'InternationalDistrictTable');
+makeTable(ballard, 'ballardTable');
+makeTable(firstHill, 'firstHillTable');
+makeTable(theInternationalDistrict, 'internationalDistrictTable');
 makeTable(southLakeUnion, 'southLakeUnionTable');
-makeTable(georgetown, 'GeorgetownTable');
-makeTable(ravenna, 'RavennaTable');
+makeTable(georgetown, 'georgetownTable');
+makeTable(ravenna, 'ravennaTable');
