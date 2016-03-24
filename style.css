@@ -1,3 +1,21 @@
-table, th, td {
+table {
    border: 1px solid black;
+   font-style: bold;
+}
+
+th {
+  border: 1px solid black;
+  font-style: bold;
+  text-align: center;
+  padding: 15px;
+}
+
+td {
+  border: 1px solid black;
+  text-align: center;
+  padding: 15px;
+}
+
+h1 {
+  text-align: center;
 }

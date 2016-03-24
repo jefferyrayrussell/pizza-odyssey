@@ -100,27 +100,27 @@ firstHill.pushHourlyData(new HourlyData('1:00 pm', 8, 20, 6, 16));
 
 console.log('firstHill');
 
-var theInternationalDistrict = new PizzaLocation('theInternationalDistrict');
-theInternationalDistrict.pushHourlyData(new HourlyData('8:00 am', 1, 3, 1, 7));
-theInternationalDistrict.pushHourlyData(new HourlyData('9:00 am', 1, 3, 1, 7));
-theInternationalDistrict.pushHourlyData(new HourlyData('10:00 am', 1, 3, 1, 7));
-theInternationalDistrict.pushHourlyData(new HourlyData('11:00 am', 5, 9, 2, 8));
-theInternationalDistrict.pushHourlyData(new HourlyData('12:00 pm', 5, 9, 2, 8));
-theInternationalDistrict.pushHourlyData(new HourlyData('1:00 pm', 5, 9, 2, 8));
-theInternationalDistrict.pushHourlyData(new HourlyData('2:00 pm', 2, 13, 1, 6));
-theInternationalDistrict.pushHourlyData(new HourlyData('3:00 pm', 2, 13, 1, 6));
-theInternationalDistrict.pushHourlyData(new HourlyData('4:00 pm', 2, 13, 1, 6));
-theInternationalDistrict.pushHourlyData(new HourlyData('5:00 pm', 18, 32, 3, 9));
-theInternationalDistrict.pushHourlyData(new HourlyData('6:00 pm', 18, 32, 3, 9));
-theInternationalDistrict.pushHourlyData(new HourlyData('7:00 pm', 18, 32, 3, 9));
-theInternationalDistrict.pushHourlyData(new HourlyData('8:00 pm', 1, 3, 5, 12));
-theInternationalDistrict.pushHourlyData(new HourlyData('9:00 pm', 1, 3, 5, 12));
-theInternationalDistrict.pushHourlyData(new HourlyData('10:00 pm', 1, 3, 5, 12));
-theInternationalDistrict.pushHourlyData(new HourlyData('11:00 pm', 8, 20, 6, 16));
-theInternationalDistrict.pushHourlyData(new HourlyData('12:00 pm', 8, 20, 6, 16));
-theInternationalDistrict.pushHourlyData(new HourlyData('1:00 pm', 8, 20, 6, 16));
+var InternationalDistrict = new PizzaLocation('InternationalDistrict');
+InternationalDistrict.pushHourlyData(new HourlyData('8:00 am', 1, 3, 1, 7));
+InternationalDistrict.pushHourlyData(new HourlyData('9:00 am', 1, 3, 1, 7));
+InternationalDistrict.pushHourlyData(new HourlyData('10:00 am', 1, 3, 1, 7));
+InternationalDistrict.pushHourlyData(new HourlyData('11:00 am', 5, 9, 2, 8));
+InternationalDistrict.pushHourlyData(new HourlyData('12:00 pm', 5, 9, 2, 8));
+InternationalDistrict.pushHourlyData(new HourlyData('1:00 pm', 5, 9, 2, 8));
+InternationalDistrict.pushHourlyData(new HourlyData('2:00 pm', 2, 13, 1, 6));
+InternationalDistrict.pushHourlyData(new HourlyData('3:00 pm', 2, 13, 1, 6));
+InternationalDistrict.pushHourlyData(new HourlyData('4:00 pm', 2, 13, 1, 6));
+InternationalDistrict.pushHourlyData(new HourlyData('5:00 pm', 18, 32, 3, 9));
+InternationalDistrict.pushHourlyData(new HourlyData('6:00 pm', 18, 32, 3, 9));
+InternationalDistrict.pushHourlyData(new HourlyData('7:00 pm', 18, 32, 3, 9));
+InternationalDistrict.pushHourlyData(new HourlyData('8:00 pm', 1, 3, 5, 12));
+InternationalDistrict.pushHourlyData(new HourlyData('9:00 pm', 1, 3, 5, 12));
+InternationalDistrict.pushHourlyData(new HourlyData('10:00 pm', 1, 3, 5, 12));
+InternationalDistrict.pushHourlyData(new HourlyData('11:00 pm', 8, 20, 6, 16));
+InternationalDistrict.pushHourlyData(new HourlyData('12:00 pm', 8, 20, 6, 16));
+InternationalDistrict.pushHourlyData(new HourlyData('1:00 pm', 8, 20, 6, 16));
 
-console.log('theInternationalDistrict');
+console.log('InternationalDistrict');
 
 var southLakeUnion = new PizzaLocation('southLakeUnion');
 southLakeUnion.pushHourlyData(new HourlyData('8:00 am', 0, 4, 0, 4));
@@ -195,6 +195,11 @@ are four table headings (Work Hour, Pizzas Sold, Deliveries Made, Drivers
 Needed). Consequently there are four corresponding cells of table data in
 each row. */
 
+/* This function creates a table row with <tr> tags which indicates the start of
+each row and I have chosen to use <th> tags which create data cells for each
+row in bold face and centered.  The actuale content of the data cell will be
+created by the function named generateDataRow.*/
+
 function generateDataRow(inputArray){
   var row = document.createElement('tr');
   var col;
@@ -206,6 +211,7 @@ function generateDataRow(inputArray){
   return row;
 }
 
+/* This function creates a separate table for each store location.     */
 function makeTable(store, storeId){
   var pizzaTable = document.getElementById(storeId);
   for(var i = 0; i < store.hourlyData.length; i++) {
@@ -214,9 +220,12 @@ function makeTable(store, storeId){
   }
 }
 
+/* The function makeTable is called below by providing two arguments for each
+store location. */
+
 makeTable(ballard, 'ballardTable');
 makeTable(firstHill, 'firstHillTable');
-makeTable(theInternationalDistrict, 'internationalDistrictTable');
+makeTable(InternationalDistrict, 'internationalDistrictTable');
 makeTable(southLakeUnion, 'southLakeUnionTable');
 makeTable(georgetown, 'georgetownTable');
 makeTable(ravenna, 'ravennaTable');

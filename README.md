@@ -12,13 +12,13 @@ open.
 
 Here are the facts.  Each of the six branches is open identical hours: 18 hours
 per day between,8 a.m. and  2 a.m., six days per week, Tuesday through Sunday.  
-Some critical data she needs purchasing supplies and staffing needs are the
+Some critical data she needs for purchasing supplies and staffing needs are the
 the number of pizzas sold and the numbers of deliveries mad during each hour of
 work for each branch location.  These arrays of numbers will be created through
 a randomly generated number function whose parameters have been normed by the
 owner's market analysis.  The owner assumes that a driver can deliver 3 pizzas
-per hour.
+per hour.   
 
-The pizza store owner requests a separate data page for each location.  Each
-page should include for every work hour of the day: the number of pizzas sold,
-the number of deliveries, and the number of delivery drivers recommended.
+The pizza store owner requests a separate table for each location.  Each
+table should include: each hour of the day, the number of pizzas sold,
+the number of deliveries made, and the number of delivery drivers recommended.
