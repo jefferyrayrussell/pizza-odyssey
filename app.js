@@ -1,12 +1,7 @@
+
 /* Here is a message printed to the developer console to makesure javascript
 is working! */
 console.log('javascript is working');
-
-/* Boiler plate code to keep the page from reloading and loosing data. */
-
-function collectLocalData(event) {
-  event.preventDefault;
-}
 
 /* Here is the function named getRandomIntInclusive that generates random
 numbers used in the modeling of the number of pizzas sold and the number of
@@ -49,10 +44,16 @@ created by dividing the number of deliveries made by the 3, the number of
 deliveries a driver is expected to make in an hour. */
 
 function HourlyData(time, minPizzasSold, maxPizzasSold, minDeliveriesMade, maxDeliveriesMade){
+  var noDriver;
   this.time = time;
   this.pizzasSold = getRandomIntInclusive(minPizzasSold, maxPizzasSold);
   this.deliveriesMade = getRandomIntInclusive(minDeliveriesMade, maxDeliveriesMade);
-  this.driversNeeded = Math.ceil(this.deliveriesMade / 3);
+  noDriver = Math.ceil(this.deliveriesMade / 3);
+  if (noDriver === 0){
+    this.driversNeeded = 'No Drivers Recommended';
+  } else {
+    this.driversNeeded = noDriver;
+  }
 }
 
 /*The lengthy six sections code found below is the creation of new object
@@ -235,7 +236,10 @@ function makeTable(store, storeId){
 }
 
 /* Finally the function makeTable is called below by providing two arguments for each
-store location and the pizza owner is very happy; for now! */
+store location and the pizza owner is very happy; for now!
+
+These variables will be replaced by a function that takes the nameLocation from input
+form and creates a heading on the html.*/
 
 makeTable(ballard, 'ballardTable');
 makeTable(firstHill, 'firstHillTable');
@@ -243,25 +247,25 @@ makeTable(InternationalDistrict, 'internationalDistrictTable');
 makeTable(southLakeUnion, 'southLakeUnionTable');
 makeTable(georgetown, 'georgetownTable');
 makeTable(ravenna, 'ravennaTable');
-/*
-makeTable(name, 'newStoreTable');
 
-/* var newPizzaLocation =
-document.getElementById('newstorelocations');
-var userTableHeading = document.createElement('h1')
-userTableHeading.textContent = pizzaLocation;
-userLocationSection.appendChild(userTable);*/
+function collectNewStoreData(event){
+  event.preventDefault();
 
-var name = event.target.nameLocation.value;
-var time = event.target.time.value;
-var minPizzasSold = event.target.minPizzasSold.value;
-var maxPizzasSold = event.target.maxPizzasSold.value;
-var minDeliveriesMade = event.target.minDeliveriesMade.value;
-var maxDeliveriesMade = event.target.maxDeliveriesMade.value;
-/*
-console.log('name'; New Store Name);
-console.log('minPizzasSold'; Minimum Pizzas Sold);
-console.log('maxPizzasSold'; Maximum Pizzas Sold);
-console.log('minDeliveriesMade'; Minimum Deliveries Made);
-console.log('maxDeliveriesMade'; Maximum Deliveries Made);
-*/
+  var nameLocation = event.target.nameLocation.value;
+  var time = event.target.time.value;
+  var minPizzasSold = event.target.minPizzasSold.value;
+  var maxPizzasSold = event.target.maxPizzasSold.value;
+  var minDeliveriesMade = event.target.minDeliveriesMade.value;
+  var maxDeliveriesMade = event.target.maxDeliveriesMade.value;
+
+  console.log('What value is the variable name? ', nameLocation);
+  console.log('What value is the variable time? ', time);
+  console.log('What value is the variable minPizzasSold? ', minPizzasSold);
+  console.log('What value is the variable maxPizzasSold? ', maxPizzasSold);
+  console.log('What value is the variable minDeliveriesMade? ', maxDeliveriesMade);
+  console.log('What value is the variable maxDeliveriesMade? ', maxDeliveriesMade);
+}
+createNewStoreDataForm = document.getElementById('newStoreDataForm');
+createNewStoreDataForm.addEventListener('submit', collectNewStoreData);
+
+// nameObject = new StoreLocation(event.target.nameLocation.value)
