@@ -2,6 +2,12 @@
 is working! */
 console.log('javascript is working');
 
+/* Boiler plate code to keep the page from reloading and loosing data. */
+
+function collectLocalData(event) {
+  event.preventDefault;
+}
+
 /* Here is the function named getRandomIntInclusive that generates random
 numbers used in the modeling of the number of pizzas sold and the number of
 deliveries occuring at a particular location for any work hour of the week. */
@@ -237,3 +243,25 @@ makeTable(InternationalDistrict, 'internationalDistrictTable');
 makeTable(southLakeUnion, 'southLakeUnionTable');
 makeTable(georgetown, 'georgetownTable');
 makeTable(ravenna, 'ravennaTable');
+
+makeTable(newStoreLocation, 'newStoreTable');
+
+/* var newPizzaLocation =
+document.getElementById('newstorelocations');
+var userTableHeading = document.createElement('h1')
+userTableHeading.textContent = pizzaLocation;
+userLocationSection.appendChild(userTable);*/
+
+
+var locationName = event.target.PizzaLocation.value;
+var time = event.target.time.value;
+var minPizzasSold=event.target.minPizzasSold.value;
+var maxPizzasSold=event.target.maxPizzasSold.value;
+var minDeliveriesMade = event.target.minDeliveriesMade.value;
+var maxDeliveriesMade = event.target.maxDeliveriesMade.value;
+
+console.log('pizzaLocation'; New Store Location);
+console.log('minPizzasSold'; Minimum Pizzas Sold);
+console.log('maxPizzasSold'; Maximum Pizzas Sold);
+console.log('minDeliveriesMade'; Minimum Deliveries Made);
+console.log('maxDeliveriesMade'; Maximum Deliveries Made);
