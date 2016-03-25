@@ -3,11 +3,36 @@
   <head>
     <title>Pizza3001 sales data</title>
     <link href="style.css" type="text/css" rel="stylesheet"/>
+    <link href="normalize.css" type="text/css" rel="stylesheet"/>
   </head>
   <body>
     <header>
-      <h1>Pizza3001 Sales Data</h1>
+        <h1>Pizza3001 Sales Data</h1>
     </header>
+      <section>
+            <h3>New Store Initialization</h3>
+            <form id="newStoreForm">
+              <fieldset>
+                <legend>Enter New Store Data</legend>
+                <label name="nameLocation"> New Store Location:</label>
+                <input name="nameLocation" type="text">
+                  <br />
+                <label name="minPizzasSold">Minimum Pizzas Sold:</label>
+                <input name="minPizzasSold" type="text">
+                  <br />
+                <label name="maxPizzasSold">Maximum Pizzas Sold:</label>
+                <input name="maxPizzasSold" type="text">
+                  <br />
+                <label name="minDeliveriesMade">Minimum Deliveries Made:</label>
+                <input name="minDeliveriesMade" type="text">
+                  <br />
+                <label name="maxDeliveriesMade">Maximum Deliveries Made:</label>
+                <input name="maxDeliveriesMade" type="text">
+                  <br />
+                <button type="submit">Submit New Store Data</button>
+              </fieldset>
+            </form>
+      </section>
       <section>
           <h3>Ballard Pizza3001</h3>
           <table id="ballardTable">
