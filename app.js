@@ -82,8 +82,8 @@ ballard.pushHourlyData(new HourlyData('8:00 pm', 1, 3, 4, 12));
 ballard.pushHourlyData(new HourlyData('9:00 pm', 1, 3, 4, 12));
 ballard.pushHourlyData(new HourlyData('10:00 pm', 1, 3, 4, 12));
 ballard.pushHourlyData(new HourlyData('11:00 pm', 8, 15, 6, 16));
-ballard.pushHourlyData(new HourlyData('12:00 pm', 8, 15, 6, 16));
-ballard.pushHourlyData(new HourlyData('1:00 pm', 8, 15, 6, 16));
+ballard.pushHourlyData(new HourlyData('12:00 am', 8, 15, 6, 16));
+ballard.pushHourlyData(new HourlyData('1:00 am', 8, 15, 6, 16));
 
 console.log('ballard');
 
@@ -104,8 +104,8 @@ firstHill.pushHourlyData(new HourlyData('8:00 pm', 1, 3, 5, 12));
 firstHill.pushHourlyData(new HourlyData('9:00 pm', 1, 3, 5, 12));
 firstHill.pushHourlyData(new HourlyData('10:00 pm', 1, 3, 5, 12));
 firstHill.pushHourlyData(new HourlyData('11:00 pm', 8, 20, 6, 16));
-firstHill.pushHourlyData(new HourlyData('12:00 pm', 8, 20, 6, 16));
-firstHill.pushHourlyData(new HourlyData('1:00 pm', 8, 20, 6, 16));
+firstHill.pushHourlyData(new HourlyData('12:00 am', 8, 20, 6, 16));
+firstHill.pushHourlyData(new HourlyData('1:00 am', 8, 20, 6, 16));
 
 console.log('firstHill');
 
@@ -126,8 +126,8 @@ InternationalDistrict.pushHourlyData(new HourlyData('8:00 pm', 1, 3, 5, 12));
 InternationalDistrict.pushHourlyData(new HourlyData('9:00 pm', 1, 3, 5, 12));
 InternationalDistrict.pushHourlyData(new HourlyData('10:00 pm', 1, 3, 5, 12));
 InternationalDistrict.pushHourlyData(new HourlyData('11:00 pm', 8, 20, 6, 16));
-InternationalDistrict.pushHourlyData(new HourlyData('12:00 pm', 8, 20, 6, 16));
-InternationalDistrict.pushHourlyData(new HourlyData('1:00 pm', 8, 20, 6, 16));
+InternationalDistrict.pushHourlyData(new HourlyData('12:00 am', 8, 20, 6, 16));
+InternationalDistrict.pushHourlyData(new HourlyData('1:00 am', 8, 20, 6, 16));
 
 console.log('InternationalDistrict');
 
@@ -148,8 +148,8 @@ southLakeUnion.pushHourlyData(new HourlyData('8:00 pm', 22, 36, 5, 22));
 southLakeUnion.pushHourlyData(new HourlyData('9:00 pm', 22, 36, 5, 22));
 southLakeUnion.pushHourlyData(new HourlyData('10:00 pm', 22, 36, 5, 22));
 southLakeUnion.pushHourlyData(new HourlyData('11:00 pm', 5, 21, 16, 31));
-southLakeUnion.pushHourlyData(new HourlyData('12:00 pm', 5, 21, 16, 31));
-southLakeUnion.pushHourlyData(new HourlyData('1:00 pm', 5, 21, 16, 31));
+southLakeUnion.pushHourlyData(new HourlyData('12:00 am', 5, 21, 16, 31));
+southLakeUnion.pushHourlyData(new HourlyData('1:00 am', 5, 21, 16, 31));
 
 console.log('southLakeUnion');
 
@@ -170,8 +170,8 @@ georgetown.pushHourlyData(new HourlyData('8:00 pm', 4, 8, 2, 5));
 georgetown.pushHourlyData(new HourlyData('9:00 pm', 4, 8, 2, 5));
 georgetown.pushHourlyData(new HourlyData('10:00 pm', 4, 8, 2, 5));
 georgetown.pushHourlyData(new HourlyData('11:00 pm', 2, 4, 3, 11));
-georgetown.pushHourlyData(new HourlyData('12:00 pm', 2, 4, 3, 11));
-georgetown.pushHourlyData(new HourlyData('1:00 pm', 2, 4, 3, 11));
+georgetown.pushHourlyData(new HourlyData('12:00 am', 2, 4, 3, 11));
+georgetown.pushHourlyData(new HourlyData('1:00 am', 2, 4, 3, 11));
 
 console.log('georgetown');
 
@@ -192,8 +192,8 @@ ravenna.pushHourlyData(new HourlyData('8:00 pm', 4, 8, 2, 5));
 ravenna.pushHourlyData(new HourlyData('9:00 pm', 4, 8, 2, 5));
 ravenna.pushHourlyData(new HourlyData('10:00 pm', 4, 8, 2, 5));
 ravenna.pushHourlyData(new HourlyData('11:00 pm', 2, 4, 3, 11));
-ravenna.pushHourlyData(new HourlyData('12:00 pm', 2, 4, 3, 11));
-ravenna.pushHourlyData(new HourlyData('1:00 pm', 2, 4, 3, 11));
+ravenna.pushHourlyData(new HourlyData('12:00 am', 2, 4, 3, 11));
+ravenna.pushHourlyData(new HourlyData('1:00 am', 2, 4, 3, 11));
 
 console.log('ravenna');
 
@@ -253,7 +253,7 @@ makeTable(ravenna, 'ravennaTable');
 function collectNewStoreData(event){
   event.preventDefault();
 
-  var nameLocation = event.target.nameLocation.value;
+  var storeID = new PizzaLocation(event.target.nameLocation.value);
 
   var minSoldTimeSpan1 = parseInt(event.target.minSoldTimeSpan1.value);
   var maxSoldTimeSpan1 = parseInt(event.target.maxSoldTimeSpan1.value);
@@ -284,12 +284,42 @@ function collectNewStoreData(event){
   var maxSoldTimeSpan6 = parseInt(event.target.maxSoldTimeSpan6.value);
   var minDeliveriesTimeSpan6 = parseInt(event.target.minDeliveriesTimeSpan6.value);
   var maxDeliveriesTimeSpan6 = parseInt(event.target.maxDeliveriesTimeSpan6.value);
-
+/*
+  // diagnostic console.log to insure the functionality of the submit button event
   console.log('What value is the variable nameLocation? ', nameLocation);
   console.log('What value is the variable minSoldTimeSpan1? ', minSoldTimeSpan1);
   console.log('What value is the variable maxSoldTimeSpan1? ', maxSoldTimeSpan1);
   console.log('What value is the variable minDeliveriesTimeSpan1? ', minDeliveriesTimeSpan1);
   console.log('What value is the variable maxDeliveriesTimeSpan1? ', maxDeliveriesTimeSpan1);
+*/
+  /*This function named calculateTableData converts the time span inputs to hourly inputs
+  and creates a new HourlyData object using the HourlyData constructor
+  and uses the pushHourlyData method to push the properties of the Hourly Data object
+  into the hourlyData property array in the PizzaLocation constructor.
+  and assigns it to storeId. */
+
+  function calculateTableData(storeID) {
+    storeId.pushHourlyData(new HourlyData('8:00 am', minSoldTimeSpan1, maxSoldTimeSpan1, minDeliveriesTimeSpan1, maxDeliveriesTimeSpan1));
+    storeId.pushHourlyData(new HourlyData('9:00 am', minSoldTimeSpan1, maxSoldTimeSpan1, minDeliveriesTimeSpan1, maxDeliveriesTimeSpan1));
+    storeId.pushHourlyData(new HourlyData('10:00 am', minSoldTimeSpan1, maxSoldTimeSpan1, minDeliveriesTimeSpan1, maxDeliveriesTimeSpan1));
+    storeId.pushHourlyData(new HourlyData('11:00 am', minSoldTimeSpan2, maxSoldTimeSpan2, minDeliveriesTimeSpan2, maxDeliveriesTimeSpan2));
+    storeId.pushHourlyData(new HourlyData('12:00 pm', minSoldTimeSpan2, maxSoldTimeSpan2, minDeliveriesTimeSpan2, maxDeliveriesTimeSpan2));
+    storeId.pushHourlyData(new HourlyData('1:00 pm', minSoldTimeSpan2, maxSoldTimeSpan2, minDeliveriesTimeSpan2, maxDeliveriesTimeSpan2));
+    storeId.pushHourlyData(new HourlyData('2:00 pm', minSoldTimeSpan3, maxSoldTimeSpan3, minDeliveriesTimeSpan3, maxDeliveriesTimeSpan3));
+    storeId.pushHourlyData(new HourlyData('3:00 pm', minSoldTimeSpan3, maxSoldTimeSpan3, minDeliveriesTimeSpan3, maxDeliveriesTimeSpan3));
+    storeId.pushHourlyData(new HourlyData('4:00 pm', minSoldTimeSpan3, maxSoldTimeSpan3, minDeliveriesTimeSpan3, maxDeliveriesTimeSpan3));
+    storeId.pushHourlyData(new HourlyData('5:00 pm', minSoldTimeSpan4, maxSoldTimeSpan4, minDeliveriesTimeSpan4, maxDeliveriesTimeSpan4));
+    storeId.pushHourlyData(new HourlyData('6:00 pm', minSoldTimeSpan4, maxSoldTimeSpan4, minDeliveriesTimeSpan4, maxDeliveriesTimeSpan4));
+    storeId.pushHourlyData(new HourlyData('7:00 pm', minSoldTimeSpan4, maxSoldTimeSpan4, minDeliveriesTimeSpan4, maxDeliveriesTimeSpan4));
+    storeId.pushHourlyData(new HourlyData('8:00 pm', minSoldTimeSpan5, maxSoldTimeSpan5, minDeliveriesTimeSpan5, maxDeliveriesTimeSpan5));
+    storeId.pushHourlyData(new HourlyData('9:00 pm', minSoldTimeSpan5, maxSoldTimeSpan5, minDeliveriesTimeSpan5, maxDeliveriesTimeSpan5));
+    storeId.pushHourlyData(new HourlyData('10:00 pm', minSoldTimeSpan5, maxSoldTimeSpan5, minDeliveriesTimeSpan5, maxDeliveriesTimeSpan5));
+    storeId.pushHourlyData(new HourlyData('11:00 pm', minSoldTimeSpan6, maxSoldTimeSpan6, minDeliveriesTimeSpan6, maxDeliveriesTimeSpan6));
+    storeId.pushHourlyData(new HourlyData('12:00 am', minSoldTimeSpan6, maxSoldTimeSpan6, minDeliveriesTimeSpan6, maxDeliveriesTimeSpan6));
+    storeId.pushHourlyData(new HourlyData('1:00 am', minSoldTimeSpan6, maxSoldTimeSpan6, minDeliveriesTimeSpan6, maxDeliveriesTimeSpan6));
+    return storeId;
+  };
+
 }
 var createNewStoreForm = document.getElementById('newStoreDataForm');
 createNewStoreForm.addEventListener('submit', collectNewStoreData);
