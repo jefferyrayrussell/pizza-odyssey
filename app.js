@@ -1,7 +1,9 @@
-
-/* Here is a message printed to the developer console to makesure javascript
-is working! */
-console.log('javascript is working');
+/* My next steps are to: 1. Enhance the sales-data.html form to receive all the
+info I need to create the new location data table. 2. Create a function in app.js
+to take the new location data and place it in a table. 3.Create a counter so the
+total estimated sales for week can be displayed on the advertising page.
+4. Add CSS styling to both html pages. 5. Reorganize JS page in proper form.
+6. Final update of the README.md */
 
 /* Here is the function named getRandomIntInclusive that generates random
 numbers used in the modeling of the number of pizzas sold and the number of
@@ -230,10 +232,10 @@ is exhausted.  */
 function makeTable(store, storeId){
   var pizzaTable = document.getElementById(storeId);
   for(var i = 0; i < store.hourlyData.length; i++) {
-    var dataRow = generateDataRow([store.hourlyData[i].time, store.hourlyData[i].pizzasSold, store.hourlyData[i].deliveriesMade, store.hourlyData[i].driversNeeded]);
+    var dataRow = generateDataRow([store.hourlyData[i].time, store.hourlyData[i].pizzasSold,  store.hourlyData[i].deliveriesMade, store.hourlyData[i].driversNeeded]);
     pizzaTable.appendChild(dataRow);
   }
-}
+} 
 
 /* Finally the function makeTable is called below by providing two arguments for each
 store location and the pizza owner is very happy; for now!
