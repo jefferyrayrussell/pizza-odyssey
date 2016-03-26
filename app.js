@@ -291,7 +291,7 @@ function collectNewStoreData(event){
   console.log('What value is the variable minDeliveriesTimeSpan1? ', minDeliveriesTimeSpan1);
   console.log('What value is the variable maxDeliveriesTimeSpan1? ', maxDeliveriesTimeSpan1);
 }
-var createNewStoreDataForm = document.getElementById('newStoreDataForm');
-createNewStoreDataForm.addEventListener('submit', collectNewStoreData);
+var createNewStoreForm = document.getElementById('newStoreDataForm');
+createNewStoreForm.addEventListener('submit', collectNewStoreData);
 
 // nameObject = new StoreLocation(event.target.nameLocation.value)
