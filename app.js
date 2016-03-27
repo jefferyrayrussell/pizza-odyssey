@@ -39,7 +39,7 @@ function generateDataRow(inputArray){
 
 function makeTable(store, storeId){
   var pizzaTable = document.getElementById('newStoreTableLocation');
-  for(var i = 0; i < store.hourlyData.length; i++) {
+  for(var i = 0; i < storeId.hourlyData.length; i++) {
     var dataRow = generateDataRow([store.hourlyData[i].time, store.hourlyData[i].pizzasSold, store.hourlyData[i].deliveriesMade, store.hourlyData[i].driversNeeded]);
     pizzaTable.appendChild(dataRow);
   }
@@ -49,7 +49,7 @@ makeTable();
 
 function collectNewStoreData(event){
   event.preventDefault();
-
+  var name = event.target.namelocation.value;
   var storeId = new PizzaLocation(event.target.nameLocation.value);
 
   var minSoldTimeSpan1 = parseInt(event.target.minSoldTimeSpan1.value);
