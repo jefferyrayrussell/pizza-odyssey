@@ -13,18 +13,13 @@ function getRandomIntInclusive(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-function HourlyData(time, minPizzasSold, maxPizzasSold, minDeliveriesMade, maxDeliveriesMade){
-  var noDriver;
+function HourlyData(time, minSold, maxSold, minDeliveries, maxDeliveries){
+  var driver;
   this.time = time;
-  this.pizzasSold = getRandomIntInclusive(minPizzasSold, maxPizzasSold);
-  this.deliveriesMade = getRandomIntInclusive(minDeliveriesMade, maxDeliveriesMade);
-  noDriver = Math.ceil(this.deliveriesMade / 3);
-  if (noDriver === 0){
-    this.driversNeeded = 'None';
-  } else {
-    this.driversNeeded = noDriver;
-  }
-}
+  this.pizzasSold = getRandomIntInclusive(minSold, maxSold);
+  this.deliveriesMade = getRandomIntInclusive(minDeliveries, maxDeliveries);
+  this.driversNeeded = Math.ceil(this.deliveriesMade / 3);
+};
 
 function generateDataRow(inputArray){
   var row = document.createElement('tr');
@@ -45,12 +40,10 @@ function makeTable(store, storeId){
   }
 }
 
-makeTable();
-
 function collectNewStoreData(event){
   event.preventDefault();
-  var name = event.target.namelocation.value;
-  var storeId = new PizzaLocation(event.target.nameLocation.value);
+
+  var name = new PizzaLocation(event.target.nameLocation.value);
 
   var minSoldTimeSpan1 = parseInt(event.target.minSoldTimeSpan1.value);
   var maxSoldTimeSpan1 = parseInt(event.target.maxSoldTimeSpan1.value);
@@ -83,31 +76,31 @@ function collectNewStoreData(event){
   var maxDeliveriesTimeSpan6 = parseInt(event.target.maxDeliveriesTimeSpan6.value);
 
   // diagnostic console.log to insure the functionality of the submit button event
-  console.log('What value is the variable storeId? ', storeId);
+  console.log('What value is the variable name? ', name);
   console.log('What value is the variable minSoldTimeSpan1? ', minSoldTimeSpan1);
   console.log('What value is the variable maxSoldTimeSpan1? ', maxSoldTimeSpan1);
   console.log('What value is the variable minDeliveriesTimeSpan1? ', minDeliveriesTimeSpan1);
   console.log('What value is the variable maxDeliveriesTimeSpan1? ', maxDeliveriesTimeSpan1);
 
-  function calculateTableData(storeID) {
-    storeId.pushHourlyData(new HourlyData('8:00 am', minSoldTimeSpan1, maxSoldTimeSpan1, minDeliveriesTimeSpan1, maxDeliveriesTimeSpan1));
-    storeId.pushHourlyData(new HourlyData('9:00 am', minSoldTimeSpan1, maxSoldTimeSpan1, minDeliveriesTimeSpan1, maxDeliveriesTimeSpan1));
-    storeId.pushHourlyData(new HourlyData('10:00 am', minSoldTimeSpan1, maxSoldTimeSpan1, minDeliveriesTimeSpan1, maxDeliveriesTimeSpan1));
-    storeId.pushHourlyData(new HourlyData('11:00 am', minSoldTimeSpan2, maxSoldTimeSpan2, minDeliveriesTimeSpan2, maxDeliveriesTimeSpan2));
-    storeId.pushHourlyData(new HourlyData('12:00 pm', minSoldTimeSpan2, maxSoldTimeSpan2, minDeliveriesTimeSpan2, maxDeliveriesTimeSpan2));
-    storeId.pushHourlyData(new HourlyData('1:00 pm', minSoldTimeSpan2, maxSoldTimeSpan2, minDeliveriesTimeSpan2, maxDeliveriesTimeSpan2));
-    storeId.pushHourlyData(new HourlyData('2:00 pm', minSoldTimeSpan3, maxSoldTimeSpan3, minDeliveriesTimeSpan3, maxDeliveriesTimeSpan3));
-    storeId.pushHourlyData(new HourlyData('3:00 pm', minSoldTimeSpan3, maxSoldTimeSpan3, minDeliveriesTimeSpan3, maxDeliveriesTimeSpan3));
-    storeId.pushHourlyData(new HourlyData('4:00 pm', minSoldTimeSpan3, maxSoldTimeSpan3, minDeliveriesTimeSpan3, maxDeliveriesTimeSpan3));
-    storeId.pushHourlyData(new HourlyData('5:00 pm', minSoldTimeSpan4, maxSoldTimeSpan4, minDeliveriesTimeSpan4, maxDeliveriesTimeSpan4));
-    storeId.pushHourlyData(new HourlyData('6:00 pm', minSoldTimeSpan4, maxSoldTimeSpan4, minDeliveriesTimeSpan4, maxDeliveriesTimeSpan4));
-    storeId.pushHourlyData(new HourlyData('7:00 pm', minSoldTimeSpan4, maxSoldTimeSpan4, minDeliveriesTimeSpan4, maxDeliveriesTimeSpan4));
-    storeId.pushHourlyData(new HourlyData('8:00 pm', minSoldTimeSpan5, maxSoldTimeSpan5, minDeliveriesTimeSpan5, maxDeliveriesTimeSpan5));
-    storeId.pushHourlyData(new HourlyData('9:00 pm', minSoldTimeSpan5, maxSoldTimeSpan5, minDeliveriesTimeSpan5, maxDeliveriesTimeSpan5));
-    storeId.pushHourlyData(new HourlyData('10:00 pm', minSoldTimeSpan5, maxSoldTimeSpan5, minDeliveriesTimeSpan5, maxDeliveriesTimeSpan5));
-    storeId.pushHourlyData(new HourlyData('11:00 pm', minSoldTimeSpan6, maxSoldTimeSpan6, minDeliveriesTimeSpan6, maxDeliveriesTimeSpan6));
-    storeId.pushHourlyData(new HourlyData('12:00 am', minSoldTimeSpan6, maxSoldTimeSpan6, minDeliveriesTimeSpan6, maxDeliveriesTimeSpan6));
-    storeId.pushHourlyData(new HourlyData('1:00 am', minSoldTimeSpan6, maxSoldTimeSpan6, minDeliveriesTimeSpan6, maxDeliveriesTimeSpan6));
+  function calculateTableData(name) {
+    name.pushHourlyData(new HourlyData('8:00 am', minSoldTimeSpan1, maxSoldTimeSpan1, minDeliveriesTimeSpan1, maxDeliveriesTimeSpan1));
+    name.pushHourlyData(new HourlyData('9:00 am', minSoldTimeSpan1, maxSoldTimeSpan1, minDeliveriesTimeSpan1, maxDeliveriesTimeSpan1));
+    name.pushHourlyData(new HourlyData('10:00 am', minSoldTimeSpan1, maxSoldTimeSpan1, minDeliveriesTimeSpan1, maxDeliveriesTimeSpan1));
+    name.pushHourlyData(new HourlyData('11:00 am', minSoldTimeSpan2, maxSoldTimeSpan2, minDeliveriesTimeSpan2, maxDeliveriesTimeSpan2));
+    name.pushHourlyData(new HourlyData('12:00 pm', minSoldTimeSpan2, maxSoldTimeSpan2, minDeliveriesTimeSpan2, maxDeliveriesTimeSpan2));
+    name.pushHourlyData(new HourlyData('1:00 pm', minSoldTimeSpan2, maxSoldTimeSpan2, minDeliveriesTimeSpan2, maxDeliveriesTimeSpan2));
+    name.pushHourlyData(new HourlyData('2:00 pm', minSoldTimeSpan3, maxSoldTimeSpan3, minDeliveriesTimeSpan3, maxDeliveriesTimeSpan3));
+    name.pushHourlyData(new HourlyData('3:00 pm', minSoldTimeSpan3, maxSoldTimeSpan3, minDeliveriesTimeSpan3, maxDeliveriesTimeSpan3));
+    name.pushHourlyData(new HourlyData('4:00 pm', minSoldTimeSpan3, maxSoldTimeSpan3, minDeliveriesTimeSpan3, maxDeliveriesTimeSpan3));
+    name.pushHourlyData(new HourlyData('5:00 pm', minSoldTimeSpan4, maxSoldTimeSpan4, minDeliveriesTimeSpan4, maxDeliveriesTimeSpan4));
+    name.pushHourlyData(new HourlyData('6:00 pm', minSoldTimeSpan4, maxSoldTimeSpan4, minDeliveriesTimeSpan4, maxDeliveriesTimeSpan4));
+    name.pushHourlyData(new HourlyData('7:00 pm', minSoldTimeSpan4, maxSoldTimeSpan4, minDeliveriesTimeSpan4, maxDeliveriesTimeSpan4));
+    name.pushHourlyData(new HourlyData('8:00 pm', minSoldTimeSpan5, maxSoldTimeSpan5, minDeliveriesTimeSpan5, maxDeliveriesTimeSpan5));
+    name.pushHourlyData(new HourlyData('9:00 pm', minSoldTimeSpan5, maxSoldTimeSpan5, minDeliveriesTimeSpan5, maxDeliveriesTimeSpan5));
+    name.pushHourlyData(new HourlyData('10:00 pm', minSoldTimeSpan5, maxSoldTimeSpan5, minDeliveriesTimeSpan5, maxDeliveriesTimeSpan5));
+    name.pushHourlyData(new HourlyData('11:00 pm', minSoldTimeSpan6, maxSoldTimeSpan6, minDeliveriesTimeSpan6, maxDeliveriesTimeSpan6));
+    name.pushHourlyData(new HourlyData('12:00 am', minSoldTimeSpan6, maxSoldTimeSpan6, minDeliveriesTimeSpan6, maxDeliveriesTimeSpan6));
+    name.pushHourlyData(new HourlyData('1:00 am', minSoldTimeSpan6, maxSoldTimeSpan6, minDeliveriesTimeSpan6, maxDeliveriesTimeSpan6));
   };
 }
 var createNewStoreForm = document.getElementById('newStoreDataForm');
