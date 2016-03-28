@@ -22,3 +22,6 @@ per hour.
 The pizza store owner requests a separate table for each location.  Each
 table should include: each hour of the day, the number of pizzas sold,
 the number of deliveries made, and the number of delivery drivers recommended.
+
+The pizza owner would also like a form to input marketing variables so that the
+production needs of a new location can be calculated.

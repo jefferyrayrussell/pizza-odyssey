@@ -1,0 +1,16 @@
+body {
+      background-color: #04020D;
+      color: #7A9A20;
+      font-family: "Prototype";
+      text-align: center;
+}
+h3 {
+    color: #9752D0;
+}
+p {
+    color: #AFBF99;
+}
+
+img {
+     border: 5px solid #9752D0;
+ }
