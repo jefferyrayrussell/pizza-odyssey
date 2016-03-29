@@ -105,25 +105,37 @@ function collectNewStoreData(event){
   console.log(userLocation);
 
   // place table creator functions here
-  /*
-  var userTable = document.createElement('table');
-
-  var firstRow = generateHeadingRow(['Time', 'Pizzas Sold', 'Deliveries Made', 'Drivers Needed']);
-
-  userTable.appendChild(firstRow);
-
-  for(var i = 0; i < userLocation.hourlyData.length; i++){
-    var dataRow = generateDataRow([userLocation.HourlyData[i].time,userLocation.hourlyData[i].pizzasSold,userLocation.hourlyData[i].deliveriesMade,userLocation.hourlyData[i].driversNeeded]);
-
-    userTable.appendChild(dataRow);
-  };
 
   var userLocationSection = document.getElementById('newStoreTableLocation');
   var userTableHeading = document.createElement('h1');
   userTableHeading.textContent = locationName;
   userLocationSection.appendChild(userTableHeading);
   userLocationSection.appendChild(userTable);
-  */
+
+
+  function createTableHeading(userLocation){
+    var heading = document.createElement('h1')
+  }
+
+  function createDataRow(inputArray){
+    var row = document.createElement('tr');
+    var col;
+    for(var i = 0; i < inputArray.length; i++){
+      col = document.createElement('td');
+      col.textContent = inputArray[i];
+      row.appendChild(col);
+    }
+    return row;
+  }
+
+  function makeTable(userLocation){
+    var pizzaTable = document.getElementById('newStoreTableLocation');
+    for(var i = 0; i < userLocation.hourlyData.length; i++) {
+      var dataRow = createDataRow([userLocation.hourlyData[i].time, userLocation.hourlyData[i].pizzasSold, userLocation.hourlyData[i].deliveriesMade, userLocation.hourlyData[i].driversNeeded]);
+      pizzaTable.appendChild(dataRow);
+    }
+  }
+  makeTable(userLocation);
 };
 
 var createNewStoreForm = document.getElementById('newStoreDataForm');
@@ -339,3 +351,64 @@ store location and the pizza owner is very happy; for now!
 
 These variables will be replaced by a function that takes the nameLocation from input
 form and creates a heading on the html.*/
+
+
+//SAMPLE TABLE CODE
+/*
+var userTable = document.createElement('table');
+
+var firstRow = generateHeadingRow(['Time', 'Pizzas Sold', 'Deliveries Made', 'Drivers Needed']);
+
+userTable.appendChild(firstRow);
+
+for(var i = 0; i < userLocation.hourlyData.length; i++){
+  var dataRow = generateDataRow([userLocation.HourlyData[i].time,userLocation.hourlyData[i].pizzasSold,userLocation.hourlyData[i].deliveriesMade,userLocation.hourlyData[i].driversNeeded]);
+
+  userTable.appendChild(dataRow);
+};
+
+var userLocationSection = document.getElementById('newStoreTableLocation');
+var userTableHeading = document.createElement('h1');
+userTableHeading.textContent = locationName;
+userLocationSection.appendChild(userTableHeading);
+userLocationSection.appendChild(userTable);
+*/
+/*
+var userTable = document.createElement('table');
+
+var firstRow = generateHeadingRow(['Time', 'Pizzas Sold', 'Deliveries Made', 'Drivers Needed']);
+
+userTable.appendChild(firstRow);
+
+for(var i = 0; i < userLocation.hourlyData.length; i++){
+  var dataRow = generateDataRow([userLocation.HourlyData[i].time,userLocation.hourlyData[i].pizzasSold,userLocation.hourlyData[i].deliveriesMade,userLocation.hourlyData[i].driversNeeded]);
+
+  userTable.appendChild(dataRow);
+};
+
+var userLocationSection = document.getElementById('newStoreTableLocation');
+var userTableHeading = document.createElement('h1');
+userTableHeading.textContent = locationName;
+userLocationSection.appendChild(userTableHeading);
+userLocationSection.appendChild(userTable);
+*/
+/* OLD TABLE CREATOR FUNCTONS
+function generateDataRow(inputArray){
+  var row = document.createElement('tr');
+  var col;
+  for(var i = 0; i < inputArray.length; i++){
+    col = document.createElement('td');
+    col.textContent = inputArray[i];
+    row.appendChild(col);
+  }
+  return row;
+}
+
+function makeTable(store, storeId){
+  var pizzaTable = document.getElementById('newStoreTableLocation');
+  for(var i = 0; i < storeId.hourlyData.length; i++) {
+    var dataRow = generateDataRow([store.hourlyData[i].time, store.hourlyData[i].pizzasSold, store.hourlyData[i].deliveriesMade, store.hourlyData[i].driversNeeded]);
+    pizzaTable.appendChild(dataRow);
+  }
+}
+*/
