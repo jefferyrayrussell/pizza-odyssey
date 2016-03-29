@@ -105,17 +105,13 @@ function collectNewStoreData(event){
   console.log(userLocation);
 
   // place table creator functions here
+  //var userLocationSection = document.getElementById('newStoreTableLocation');
+  //var userTableHeading = document.createElement('h3');
+  //userTableHeading.textContent = locationName;
 
-  var userLocationSection = document.getElementById('newStoreTableLocation');
-  var userTableHeading = document.createElement('h1');
-  userTableHeading.textContent = locationName;
-  userLocationSection.appendChild(userTableHeading);
-  userLocationSection.appendChild(userTable);
-
-
-  function createTableHeading(userLocation){
-    var heading = document.createElement('h1')
-  }
+  //function createTableHeading(userLocation){
+  //  var heading = document.createElement('h1')
+  //}
 
   function createDataRow(inputArray){
     var row = document.createElement('tr');
@@ -351,7 +347,6 @@ store location and the pizza owner is very happy; for now!
 
 These variables will be replaced by a function that takes the nameLocation from input
 form and creates a heading on the html.*/
-
 
 //SAMPLE TABLE CODE
 /*
