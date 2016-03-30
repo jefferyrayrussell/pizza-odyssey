@@ -126,8 +126,29 @@ function collectNewStoreData(event){
 
   function makeTable(userLocation){
     var pizzaTable = document.getElementById('newStoreTableLocation');
+    var headerRow = document.createElement('tr');
+
+    var headerTime = document.createElement('th');
+    headerTime.textContent = ('Time');
+    headerRow.appendChild(headerTime);
+
+    var headerTime = document.createElement('th');
+    headerTime.textContent = ('Pizzas Sold');
+    headerRow.appendChild(headerTime);
+
+    var headerTime = document.createElement('th');
+    headerTime.textContent = ('Deliveries');
+    headerRow.appendChild(headerTime);
+
+    var headerTime = document.createElement('th');
+    headerTime.textContent = ('Drivers Needed');
+    headerRow.appendChild(headerTime);
+
+    pizzaTable.appendChild(headerRow);
+
     for(var i = 0; i < userLocation.hourlyData.length; i++) {
       var dataRow = createDataRow([userLocation.hourlyData[i].time, userLocation.hourlyData[i].pizzasSold, userLocation.hourlyData[i].deliveriesMade, userLocation.hourlyData[i].driversNeeded]);
+      console.log(pizzaTable);
       pizzaTable.appendChild(dataRow);
     }
   }
