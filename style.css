@@ -1,3 +1,35 @@
+body {
+      font-family: "Prototype";
+      margin: 15 px;
+}
+header,h3,h4,h5 {
+    color: #9752D0;
+    text-align: left;
+}
+
+form {
+    #AFBF99
+}
+label {
+      text-align: right;
+      margin-right: 15 px;
+      margin-left: 1 px;
+      width:  100 px;
+      display: inline-block;
+}
+input {
+  background-color: #AFBF99;
+  display: inline-block;
+  padding-right: 50 px;
+}
+p {
+    color: #AFBF99;
+}
+
+ul {
+  text-align:left;
+}
+
 table {
    border: 1px solid black;
    font-style: bold;
