@@ -20,6 +20,188 @@ function HourlyData(time, minSold, maxSold, minDeliveries, maxDeliveries){
   this.driversNeeded = Math.ceil(this.deliveriesMade / 3);
 };
 
+function createDataRow(inputArray){
+  var row = document.createElement('tr');
+  var col;
+  for(var i = 0; i < inputArray.length; i++){
+    col = document.createElement('td');
+    col.textContent = inputArray[i];
+    row.appendChild(col);
+}
+
+function makeTable(userLocation){
+  var pizzaTable = document.getElementById('tableLocation');
+
+  var tableHeading = document.createElement('h3');
+  tableHeading.textContent = (locationName + ' Pizza3001');
+  pizzaTable.appendChild(tableHeading);
+
+  var headerRow = document.createElement('tr');
+
+  var headerTime = document.createElement('th');
+  headerTime.textContent = ('Time');
+  headerRow.appendChild(headerTime);
+
+  var headerTime = document.createElement('th');
+  headerTime.textContent = ('Pizzas Sold');
+  headerRow.appendChild(headerTime);
+
+  var headerTime = document.createElement('th');
+  headerTime.textContent = ('Deliveries');
+  headerRow.appendChild(headerTime);
+
+  var headerTime = document.createElement('th');
+  headerTime.textContent = ('Drivers Needed');
+  headerRow.appendChild(headerTime);
+
+  pizzaTable.appendChild(headerRow);
+
+  for(var i = 0; i < userLocation.hourlyData.length; i++) {
+    var dataRow = createDataRow([userLocation.hourlyData[i].time, userLocation.hourlyData[i].pizzasSold, userLocation.hourlyData[i].deliveriesMade, userLocation.hourlyData[i].driversNeeded]);
+    console.log(pizzaTable);
+    pizzaTable.appendChild(dataRow);
+  }
+}
+
+var ballard = new PizzaLocation('ballard');
+//var locationName = 'Ballard';
+ballard.pushHourlyData(new HourlyData('8:00 am', 0, 3, 1, 7));
+ballard.pushHourlyData(new HourlyData('9:00 am', 0, 3, 1, 7));
+ballard.pushHourlyData(new HourlyData('10:00 am', 0, 3, 1, 7));
+ballard.pushHourlyData(new HourlyData('11:00 am', 5, 10, 2, 8));
+ballard.pushHourlyData(new HourlyData('12:00 pm', 5, 10, 2, 8));
+ballard.pushHourlyData(new HourlyData('1:00 pm', 5, 10, 2, 8));
+ballard.pushHourlyData(new HourlyData('2:00 pm', 2, 13, 1, 7));
+ballard.pushHourlyData(new HourlyData('3:00 pm', 2, 13, 1, 7));
+ballard.pushHourlyData(new HourlyData('4:00 pm', 2, 13, 1, 7));
+ballard.pushHourlyData(new HourlyData('5:00 pm', 0, 15, 2, 9));
+ballard.pushHourlyData(new HourlyData('6:00 pm', 0, 15, 2, 9));
+ballard.pushHourlyData(new HourlyData('7:00 pm', 0, 15, 2, 9));
+ballard.pushHourlyData(new HourlyData('8:00 pm', 1, 3, 4, 12));
+ballard.pushHourlyData(new HourlyData('9:00 pm', 1, 3, 4, 12));
+ballard.pushHourlyData(new HourlyData('10:00 pm', 1, 3, 4, 12));
+ballard.pushHourlyData(new HourlyData('11:00 pm', 8, 15, 6, 16));
+ballard.pushHourlyData(new HourlyData('12:00 am', 8, 15, 6, 16));
+ballard.pushHourlyData(new HourlyData('1:00 am', 8, 15, 6, 16));
+
+var firstHill = new PizzaLocation('firstHill');
+
+firstHill.pushHourlyData(new HourlyData('8:00 am', 1, 3, 1, 7));
+firstHill.pushHourlyData(new HourlyData('9:00 am', 1, 3, 1, 7));
+firstHill.pushHourlyData(new HourlyData('10:00 am', 1, 3, 1, 7));
+firstHill.pushHourlyData(new HourlyData('11:00 am', 5, 9, 2, 8));
+firstHill.pushHourlyData(new HourlyData('12:00 pm', 5, 9, 2, 8));
+firstHill.pushHourlyData(new HourlyData('1:00 pm', 5, 9, 2, 8));
+firstHill.pushHourlyData(new HourlyData('2:00 pm', 2, 13, 1, 6));
+firstHill.pushHourlyData(new HourlyData('3:00 pm', 2, 13, 1, 6));
+firstHill.pushHourlyData(new HourlyData('4:00 pm', 2, 13, 1, 6));
+firstHill.pushHourlyData(new HourlyData('5:00 pm', 18, 32, 3, 9));
+firstHill.pushHourlyData(new HourlyData('6:00 pm', 18, 32, 3, 9));
+firstHill.pushHourlyData(new HourlyData('7:00 pm', 18, 32, 3, 9));
+firstHill.pushHourlyData(new HourlyData('8:00 pm', 1, 3, 5, 12));
+firstHill.pushHourlyData(new HourlyData('9:00 pm', 1, 3, 5, 12));
+firstHill.pushHourlyData(new HourlyData('10:00 pm', 1, 3, 5, 12));
+firstHill.pushHourlyData(new HourlyData('11:00 pm', 8, 20, 6, 16));
+firstHill.pushHourlyData(new HourlyData('12:00 am', 8, 20, 6, 16));
+firstHill.pushHourlyData(new HourlyData('1:00 am', 8, 20, 6, 16));
+
+var InternationalDistrict = new PizzaLocation('InternationalDistrict');
+
+InternationalDistrict.pushHourlyData(new HourlyData('8:00 am', 1, 3, 1, 7));
+InternationalDistrict.pushHourlyData(new HourlyData('9:00 am', 1, 3, 1, 7));
+InternationalDistrict.pushHourlyData(new HourlyData('10:00 am', 1, 3, 1, 7));
+InternationalDistrict.pushHourlyData(new HourlyData('11:00 am', 5, 9, 2, 8));
+InternationalDistrict.pushHourlyData(new HourlyData('12:00 pm', 5, 9, 2, 8));
+InternationalDistrict.pushHourlyData(new HourlyData('1:00 pm', 5, 9, 2, 8));
+InternationalDistrict.pushHourlyData(new HourlyData('2:00 pm', 2, 13, 1, 6));
+InternationalDistrict.pushHourlyData(new HourlyData('3:00 pm', 2, 13, 1, 6));
+InternationalDistrict.pushHourlyData(new HourlyData('4:00 pm', 2, 13, 1, 6));
+InternationalDistrict.pushHourlyData(new HourlyData('5:00 pm', 18, 32, 3, 9));
+InternationalDistrict.pushHourlyData(new HourlyData('6:00 pm', 18, 32, 3, 9));
+InternationalDistrict.pushHourlyData(new HourlyData('7:00 pm', 18, 32, 3, 9));
+InternationalDistrict.pushHourlyData(new HourlyData('8:00 pm', 1, 3, 5, 12));
+InternationalDistrict.pushHourlyData(new HourlyData('9:00 pm', 1, 3, 5, 12));
+InternationalDistrict.pushHourlyData(new HourlyData('10:00 pm', 1, 3, 5, 12));
+InternationalDistrict.pushHourlyData(new HourlyData('11:00 pm', 8, 20, 6, 16));
+InternationalDistrict.pushHourlyData(new HourlyData('12:00 am', 8, 20, 6, 16));
+InternationalDistrict.pushHourlyData(new HourlyData('1:00 am', 8, 20, 6, 16));
+
+var southLakeUnion = new PizzaLocation('southLakeUnion');
+
+southLakeUnion.pushHourlyData(new HourlyData('8:00 am', 0, 4, 0, 4));
+southLakeUnion.pushHourlyData(new HourlyData('9:00 am', 0, 4, 0, 4));
+southLakeUnion.pushHourlyData(new HourlyData('10:00 am', 0, 4, 0, 4));
+southLakeUnion.pushHourlyData(new HourlyData('11:00 am', 0, 7, 0, 4));
+southLakeUnion.pushHourlyData(new HourlyData('12:00 pm', 0, 7, 0, 4));
+southLakeUnion.pushHourlyData(new HourlyData('1:00 pm', 0, 7, 0, 4));
+southLakeUnion.pushHourlyData(new HourlyData('2:00 pm', 5, 15, 0, 4));
+southLakeUnion.pushHourlyData(new HourlyData('3:00 pm', 5, 15, 0, 4));
+southLakeUnion.pushHourlyData(new HourlyData('4:00 pm', 5, 15, 0, 4));
+southLakeUnion.pushHourlyData(new HourlyData('5:00 pm', 25, 39, 13, 18));
+southLakeUnion.pushHourlyData(new HourlyData('6:00 pm', 25, 39, 13, 18));
+southLakeUnion.pushHourlyData(new HourlyData('7:00 pm', 25, 39, 13, 18));
+southLakeUnion.pushHourlyData(new HourlyData('8:00 pm', 22, 36, 5, 22));
+southLakeUnion.pushHourlyData(new HourlyData('9:00 pm', 22, 36, 5, 22));
+southLakeUnion.pushHourlyData(new HourlyData('10:00 pm', 22, 36, 5, 22));
+southLakeUnion.pushHourlyData(new HourlyData('11:00 pm', 5, 21, 16, 31));
+southLakeUnion.pushHourlyData(new HourlyData('12:00 am', 5, 21, 16, 31));
+southLakeUnion.pushHourlyData(new HourlyData('1:00 am', 5, 21, 16, 31));
+
+var georgetown = new PizzaLocation('georgetown');
+
+georgetown.pushHourlyData(new HourlyData('8:00 am', 2, 7, 3, 5));
+georgetown.pushHourlyData(new HourlyData('9:00 am', 2, 7, 3, 5));
+georgetown.pushHourlyData(new HourlyData('10:00 am', 2, 7, 3, 5));
+georgetown.pushHourlyData(new HourlyData('11:00 am', 3, 8, 3, 9));
+georgetown.pushHourlyData(new HourlyData('12:00 pm', 3, 8, 3, 9));
+georgetown.pushHourlyData(new HourlyData('1:00 pm', 3, 8, 3, 9));
+georgetown.pushHourlyData(new HourlyData('2:00 pm', 2, 15, 1, 4));
+georgetown.pushHourlyData(new HourlyData('3:00 pm', 2, 15, 1, 4));
+georgetown.pushHourlyData(new HourlyData('4:00 pm', 2, 15, 1, 4));
+georgetown.pushHourlyData(new HourlyData('5:00 pm', 6, 9, 5, 18));
+georgetown.pushHourlyData(new HourlyData('6:00 pm', 6, 9, 5, 18));
+georgetown.pushHourlyData(new HourlyData('7:00 pm', 6, 9, 5, 18));
+georgetown.pushHourlyData(new HourlyData('8:00 pm', 4, 8, 2, 5));
+georgetown.pushHourlyData(new HourlyData('9:00 pm', 4, 8, 2, 5));
+georgetown.pushHourlyData(new HourlyData('10:00 pm', 4, 8, 2, 5));
+georgetown.pushHourlyData(new HourlyData('11:00 pm', 2, 4, 3, 11));
+georgetown.pushHourlyData(new HourlyData('12:00 am', 2, 4, 3, 11));
+georgetown.pushHourlyData(new HourlyData('1:00 am', 2, 4, 3, 11));
+
+var ravenna = new PizzaLocation('ravenna');
+
+ravenna.pushHourlyData(new HourlyData('8:00 am', 0, 4, 0, 4));
+ravenna.pushHourlyData(new HourlyData('9:00 am', 0, 4, 0, 4));
+ravenna.pushHourlyData(new HourlyData('10:00 am', 0, 4, 0, 4));
+ravenna.pushHourlyData(new HourlyData('11:00 am', 0, 7, 0, 4));
+ravenna.pushHourlyData(new HourlyData('12:00 pm', 0, 7, 0, 4));
+ravenna.pushHourlyData(new HourlyData('1:00 pm', 0, 7, 0, 4));
+ravenna.pushHourlyData(new HourlyData('2:00 pm', 2, 15, 1, 4));
+ravenna.pushHourlyData(new HourlyData('3:00 pm', 2, 15, 1, 4));
+ravenna.pushHourlyData(new HourlyData('4:00 pm', 2, 15, 1, 4));
+ravenna.pushHourlyData(new HourlyData('5:00 pm', 6, 9, 5, 18));
+ravenna.pushHourlyData(new HourlyData('6:00 pm', 6, 9, 5, 18));
+ravenna.pushHourlyData(new HourlyData('7:00 pm', 6, 9, 5, 18));
+ravenna.pushHourlyData(new HourlyData('8:00 pm', 4, 8, 2, 5));
+ravenna.pushHourlyData(new HourlyData('9:00 pm', 4, 8, 2, 5));
+ravenna.pushHourlyData(new HourlyData('10:00 pm', 4, 8, 2, 5));
+ravenna.pushHourlyData(new HourlyData('11:00 pm', 2, 4, 3, 11));
+ravenna.pushHourlyData(new HourlyData('12:00 am', 2, 4, 3, 11));
+ravenna.pushHourlyData(new HourlyData('1:00 am', 2, 4, 3, 11));
+
+locationName = ('Ballard');
+makeTable(ballard);
+locationName = ('First Hill');
+makeTable(firstHill);
+locationName = ('International District');
+makeTable(InternationalDistrict);
+locationName = ('South Lake Union');
+makeTable(southLakeUnion);
+locationName = ('Georgetown');
+makeTable(georgetown);
+locationName = ('Ravenna');
+makeTable(ravenna);
+
 function collectNewStoreData(event){
   event.preventDefault();
 
