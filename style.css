@@ -1,53 +1,67 @@
 body {
       font-family: "Prototype";
-      margin: 15 px;
-}
+      padding: 20px;
+    }
+
 header,h3,h4,h5 {
     color: #9752D0;
     text-align: left;
 }
 
 form {
-    #AFBF99
+    padding-top: 20px;
+    width: 500px;
 }
+
+fieldset {
+  padding-top: 10px;
+}
+
+legend {
+    font-size: 24px;
+    color: #9752D0;
+}
+
+ul{
+  width: 450px;
+
+}
+
 label {
-      text-align: right;
-      margin-right: 15 px;
-      margin-left: 1 px;
-      width:  100 px;
-      display: inline-block;
+      text-align: left;
+      display: inline;
 }
 input {
   background-color: #AFBF99;
-  display: inline-block;
-  padding-right: 50 px;
-}
-p {
-    color: #AFBF99;
-}
-
-ul {
-  text-align:left;
+  display: inline;
+  text-align:center;
+  float: right;
+  width: 150px;
+  height: 18px;
 }
 
 table {
-   border: 1px solid black;
+   border: 0px solid black;
    font-style: bold;
 }
 
 th {
-  border: 1px solid black;
+  border: 2px solid black;
   font-style: bold;
-  text-align: center;
+  text-align:  center;
   padding: 15px;
 }
 
 td {
-  border: 1px solid black;
+  border: 2px solid black;
   text-align: center;
   padding: 15px;
 }
 
 h1 {
-  text-align: center;
+  text-align: left;
+}
+
+button {
+  background-color: #AFBF99;
 }
